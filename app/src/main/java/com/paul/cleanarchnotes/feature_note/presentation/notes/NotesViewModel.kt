@@ -1,4 +1,4 @@
-package com.paul.cleanarchnotes.feature_note.presentation.notes.components
+package com.paul.cleanarchnotes.feature_note.presentation.notes
 
 import androidx.lifecycle.ViewModel
 import com.paul.cleanarchnotes.feature_note.domain.usecase.NoteUseCases
