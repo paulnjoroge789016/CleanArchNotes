@@ -14,3 +14,6 @@ data class Note(
     @PrimaryKey val id: Int = 0
     val noteColors= listOf( RedOrange, LightGreen, Violet, BabyBlue, RedPink)
 }
+
+
+class  Invla
