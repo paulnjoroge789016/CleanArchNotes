@@ -9,7 +9,6 @@ class AddNote @Inject constructor(
         ){
 
     suspend operator fun invoke(note: Note) {
-
         if(note.title.isBlank()){
 
         }
