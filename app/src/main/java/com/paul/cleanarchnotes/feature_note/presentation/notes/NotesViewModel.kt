@@ -24,8 +24,10 @@ class NotesViewModel @Inject constructor(
         when(event){
 
             is NotesEvent.Order -> {
+                if (state.value.noteOrder::class == event.orderType::class && state.value.noteOrder.orderType ==
+                        event.orderType){
 
-
+                }
             }
 
             is NotesEvent.DeleteNote -> {
@@ -39,6 +41,8 @@ class NotesViewModel @Inject constructor(
             is NotesEvent.RestoreNote -> {
                 viewModelScope.launch {
 
+                    noteUseCases.addNote(recentlyDeletedNote ?: return@launch)
+                    recentlyDeletedNote = null
                 }
 
             }

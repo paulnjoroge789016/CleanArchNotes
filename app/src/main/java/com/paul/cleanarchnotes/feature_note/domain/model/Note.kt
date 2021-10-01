@@ -3,6 +3,7 @@ package com.paul.cleanarchnotes.feature_note.domain.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.paul.cleanarchnotes.ui.theme.*
+import java.lang.Exception
 
 @Entity
 data class Note(
@@ -16,4 +17,4 @@ data class Note(
 }
 
 
-class  Invla
+class  InvalidNoteException(message: String): Exception(message)
