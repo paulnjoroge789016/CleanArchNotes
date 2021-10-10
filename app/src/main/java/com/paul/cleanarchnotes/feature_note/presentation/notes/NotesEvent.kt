@@ -1,6 +1,7 @@
 package com.paul.cleanarchnotes.feature_note.presentation.notes
 
 import com.paul.cleanarchnotes.feature_note.domain.model.Note
+import com.paul.cleanarchnotes.feature_note.domain.util.NoteOrder
 import com.paul.cleanarchnotes.feature_note.domain.util.OrderType
 
 
@@ -9,7 +10,7 @@ import com.paul.cleanarchnotes.feature_note.domain.util.OrderType
  * trigger from the UI
  */
 sealed class NotesEvent{
-    data class Order(val orderType: OrderType): NotesEvent()
+    data class Order(val noteOrder: NoteOrder): NotesEvent()
     data class DeleteNote(val note: Note): NotesEvent()
     object RestoreNote: NotesEvent()
     object ToggleOrderSection: NotesEvent()
