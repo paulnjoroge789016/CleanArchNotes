@@ -9,7 +9,7 @@ class GetNote @Inject constructor(
 ) {
 
 
-    suspend fun invoke(id: Int): Note? {
+    suspend operator fun invoke(id: Int): Note? {
         return repository.getNoteById(id)
     }
 }

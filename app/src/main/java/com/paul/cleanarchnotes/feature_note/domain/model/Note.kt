@@ -7,13 +7,18 @@ import java.lang.Exception
 
 @Entity
 data class Note(
+    @PrimaryKey val id: Int?,
     val title: String,
     val content: String,
     val timestamp: Long,
     val color: Int
 ){
-    @PrimaryKey val id: Int = 0
-    val noteColors= listOf( RedOrange, LightGreen, Violet, BabyBlue, RedPink)
+
+
+    companion object {
+        val noteColors= listOf( RedOrange, LightGreen, Violet, BabyBlue, RedPink)
+
+    }
 }
 
 
