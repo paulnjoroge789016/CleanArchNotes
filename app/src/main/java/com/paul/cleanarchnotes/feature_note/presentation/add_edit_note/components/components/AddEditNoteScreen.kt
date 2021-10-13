@@ -109,7 +109,8 @@ fun AddEditNoteScreen(
                                     Color.Black
                                 } else {
                                     Color.Transparent
-                                }
+                                },
+                                shape = CircleShape
                             )
                             .clickable {
                                 scope.launch {

@@ -9,12 +9,14 @@ import com.paul.cleanarchnotes.feature_note.domain.model.NoteState
 import com.paul.cleanarchnotes.feature_note.domain.usecase.NoteUseCases
 import com.paul.cleanarchnotes.feature_note.domain.util.NoteOrder
 import com.paul.cleanarchnotes.feature_note.domain.util.OrderType
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class NotesViewModel @Inject constructor(
     private val noteUseCases: NoteUseCases
 ): ViewModel(){
@@ -68,6 +70,8 @@ class NotesViewModel @Inject constructor(
                     isOrderSectionVisible = !state.value.isOrderSectionVisible
                 )
             }
+
+
 
 
         }

@@ -41,13 +41,13 @@ fun NoteItem(
             modifier = Modifier.matchParentSize()
         ) {
             val clipPath = Path().apply {
-                lineTo(size.width - cutCornerSize.toPx()   , 0f)
+                lineTo(size.width - cutCornerSize.toPx(), 0f)
                 lineTo(size.width, cutCornerSize.toPx())
                 lineTo(size.width, size.height)
                 lineTo(0f, size.height)
                 close()
             }
-            clipPath(clipPath){
+            clipPath(clipPath) {
                 drawRoundRect(
                     color = Color(note.color),
                     size = size,
@@ -55,11 +55,11 @@ fun NoteItem(
                 )
             }
 
-            clipPath(clipPath){
+            clipPath(clipPath) {
                 drawRoundRect(
                     color = Color(ColorUtils.blendARGB(note.color, 0x000000, 0.2f)),
                     topLeft = Offset(size.width - cutCornerSize.toPx(), -100f),
-                    size = Size( cutCornerSize.toPx() + 100f,cutCornerSize.toPx() + 100f ),
+                    size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f),
                     cornerRadius = CornerRadius(cornerRadius.toPx())
                 )
             }
@@ -67,10 +67,12 @@ fun NoteItem(
 
         }
 
-        Column(modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-            .padding(end = 32.dp)) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .padding(end = 32.dp)
+        ) {
 
             Text(
                 text = note.title,
@@ -92,11 +94,16 @@ fun NoteItem(
 
 
         }
-        
-        IconButton(onClick =  onDeleteClick ,
+
+        IconButton(
+            onClick = onDeleteClick,
             modifier = Modifier.align(Alignment.BottomEnd)
         ) {
-            Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete note")
+            Icon(
+                imageVector = Icons.Default.Delete,
+                contentDescription = "Delete note",
+                tint = MaterialTheme.colors.onSurface
+            )
         }
 
     }
