@@ -15,10 +15,18 @@ private val DarkColorPalette = darkColors(
     onSurface = DarkGray
 )
 
+private val LightColorPalette = darkColors(
+    primary = Color.Black,
+    background = LightGray,
+    onBackground = Color.Black,
+    surface = LightBlue,
+    onSurface = DarkGray
+)
+
 @Composable
-fun CleanArchNotesTheme(darkTheme: Boolean = true, content: @Composable() () -> Unit) {
+fun CleanArchNotesTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
     MaterialTheme(
-        colors = DarkColorPalette,
+        colors = if (darkTheme) DarkColorPalette else LightColorPalette,
         typography = Typography,
         shapes = Shapes,
         content = content

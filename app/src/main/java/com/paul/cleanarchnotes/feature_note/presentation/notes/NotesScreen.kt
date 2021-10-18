@@ -1,7 +1,8 @@
-package com.paul.cleanarchnotes.feature_note.presentation.notes.components
+package com.paul.cleanarchnotes.feature_note.presentation.notes
 
 import androidx.compose.animation.*
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,12 +14,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.paul.cleanarchnotes.feature_note.presentation.notes.NotesEvent
-import com.paul.cleanarchnotes.feature_note.presentation.notes.NotesViewModel
+import com.paul.cleanarchnotes.feature_note.presentation.notes.components.NoteItem
+import com.paul.cleanarchnotes.feature_note.presentation.notes.components.OrderSection
 import com.paul.cleanarchnotes.feature_note.presentation.util.Screen
+import com.paul.cleanarchnotes.ui.theme.GrayColor
 import kotlinx.coroutines.launch
 
 @ExperimentalAnimationApi
@@ -39,7 +42,7 @@ fun NotesScreen(
                 onClick = {
                     navController.navigate(Screen.AddEditNoteScreen.route)
                 },
-                backgroundColor = MaterialTheme.colors.primary
+                backgroundColor = if(isSystemInDarkTheme()) MaterialTheme.colors.primary else GrayColor
             ) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add note")
             }

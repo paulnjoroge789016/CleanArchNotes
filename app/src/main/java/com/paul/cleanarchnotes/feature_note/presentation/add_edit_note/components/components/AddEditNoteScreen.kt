@@ -5,6 +5,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
@@ -25,6 +26,7 @@ import androidx.navigation.NavController
 import com.paul.cleanarchnotes.feature_note.domain.model.Note
 import com.paul.cleanarchnotes.feature_note.presentation.add_edit_note.components.AddEditNoteEvent
 import com.paul.cleanarchnotes.feature_note.presentation.add_edit_note.components.AddEditNoteViewModel
+import com.paul.cleanarchnotes.ui.theme.GrayColor
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -70,7 +72,7 @@ fun AddEditNoteScreen(
             onClick = {
                 viewModel.onEvent(AddEditNoteEvent.SaveNote)
             },
-            backgroundColor = MaterialTheme.colors.primary
+            backgroundColor = if(isSystemInDarkTheme()) MaterialTheme.colors.primary else GrayColor
         ) {
             Icon(imageVector = Icons.Default.Save, contentDescription = "Save Note")
         }
