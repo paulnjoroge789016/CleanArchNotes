@@ -5,7 +5,7 @@ This is clean arch app for notes keeping. Basically the user can create, edit, d
 ## ScreenShots
 ### Home Page
 
-![alt text](https://github.com/paulnjoroge789016/CleanArchNotes/blob/master/screenshots/NoteHome.png?raw=true)
+![alt text](https://github.com/paulnjoroge789016/CleanArchNotes/blob/master/screenshots/NoteHome.png)
 
 ### Edit Note Page
 
