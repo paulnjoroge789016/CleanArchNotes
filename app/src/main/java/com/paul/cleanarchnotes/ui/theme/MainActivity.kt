@@ -1,4 +1,4 @@
-package com.paul.cleanarchnotes
+package com.paul.cleanarchnotes.ui.theme
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
