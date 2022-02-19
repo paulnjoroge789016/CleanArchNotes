@@ -30,7 +30,7 @@ import org.junit.runner.RunWith
 class NoteDaoTest {
 
     @get:Rule
-    var instantTaskExecutorRule:  InstantTaskExecutorRule = InstantTaskExecutorRule()
+    var instantTaskExecutorRule: InstantTaskExecutorRule = InstantTaskExecutorRule()
 
     lateinit var noteDatabase: NoteDatabase
     lateinit var noteDao: NoteDao
@@ -70,6 +70,47 @@ class NoteDaoTest {
             assertThat(notes).contains(note)
             cancelAndConsumeRemainingEvents()
         }
+
+    }
+
+
+    @Test
+    fun getNoteById() = runBlockingTest {
+        val color = R.color.teal_700
+        val note = Note(
+            id = 1,
+            title = "Test",
+            content = "Test",
+            timestamp = 1645105761,
+            color
+        )
+        noteDao.insertNote(note)
+
+        val noteFromDb = noteDao.getNoteById(1)
+        assertThat(note).isEqualTo(noteFromDb)
+
+    }
+
+    @Test
+    fun deleteNote() = runBlockingTest {
+
+        val color = R.color.teal_700
+        val note = Note(
+            id = 1,
+            title = "Test",
+            content = "Test",
+            timestamp = 1645105761,
+            color
+        )
+        noteDao.insertNote(note)
+        noteDao.deleteNote(note)
+
+        noteDao.getNotes().test {
+            notes = awaitItem()
+            assertThat(notes.size).isEqualTo(0)
+            cancelAndConsumeRemainingEvents()
+        }
+
 
     }
 
