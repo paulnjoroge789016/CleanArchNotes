@@ -45,7 +45,6 @@ class NoteDaoTest {
             .allowMainThreadQueries()
             .build()
 
-
         noteDao = noteDatabase.noteDao
 
 
